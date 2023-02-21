@@ -21,16 +21,19 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <!--  Row 0: Theme Button  -->
+        <!--  Row 0: Theme Button / Title  -->
         <Button
             Grid.Row="0"
             Width="25"
-            Margin="5,10,290,7"
+            Height="25"
+            Margin="5,15,290,10"
+            Padding="0,-5,0,5"
             Background="{Binding BackgroundColor}"
             BorderThickness="0"
             Click="Theme_ButtonPress"
             Content="≡"
-            FontSize="24"
+            FontSize="22"
+            FontWeight="SemiBold"
             Foreground="{Binding LightTextColor}">
             <Button.Resources>
                 <Style TargetType="Border">
@@ -42,7 +45,7 @@
             Grid.Row="0"
             Width="120"
             Height="30"
-            Margin="40,12,180,0"
+            Margin="40,10,180,0"
             Padding="0,0,0,5"
             Background="{Binding BackgroundColor}"
             BorderThickness="0"

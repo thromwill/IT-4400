@@ -79,7 +79,7 @@ namespace M6
 
         public void Add_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(mainWindowData.CurrentValue)) { return;  }
+            if (string.IsNullOrEmpty(mainWindowData.CurrentValue) || NoValue()) { return; }
             if (OperationInProgress()) { CompletePreviousOperation("add"); return; }
 
             mainWindowData.PreviousValue = $"{mainWindowData.CurrentValue} +";
@@ -89,7 +89,7 @@ namespace M6
 
         public void Subtract_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(mainWindowData.CurrentValue)) { return; }
+            if (string.IsNullOrEmpty(mainWindowData.CurrentValue) || NoValue()) { return; }
             if (OperationInProgress()) { CompletePreviousOperation("subtract"); return; }
 
             mainWindowData.PreviousValue = $"{mainWindowData.CurrentValue} -";
@@ -99,7 +99,7 @@ namespace M6
 
         public void Multiply_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(mainWindowData.CurrentValue)) { return; }
+            if (string.IsNullOrEmpty(mainWindowData.CurrentValue) || NoValue()) { return; }
             if (OperationInProgress()) { CompletePreviousOperation("multiply"); return; }
 
             mainWindowData.PreviousValue = $"{mainWindowData.CurrentValue} ×";
@@ -109,7 +109,7 @@ namespace M6
 
         public void Divide_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(mainWindowData.CurrentValue)) { return; }
+            if (string.IsNullOrEmpty(mainWindowData.CurrentValue) || NoValue()) { return; }
             if (OperationInProgress()) { CompletePreviousOperation("divide"); return; }
 
             mainWindowData.PreviousValue = $"{mainWindowData.CurrentValue} ÷";
@@ -117,7 +117,7 @@ namespace M6
             mainWindowData.CurrentOperation = "divide";
         }
 
-        public void ClearEntity_ButtonPress(object sender, RoutedEventArgs e)
+        public void ClearEntry_ButtonPress(object sender, RoutedEventArgs e)
         {
             mainWindowData.CurrentValue = "";
         }
@@ -138,7 +138,7 @@ namespace M6
 
         public void Percent_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (InvalidButtonPress()) { return; }
+            if (InvalidButtonPress() || NoValue()) { return; }
 
             double result = Calculator.Percent(double.Parse(mainWindowData.CurrentValue));
             mainWindowData.CurrentValue = $"{result}";
@@ -146,7 +146,7 @@ namespace M6
 
         public void Reciprocal_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (InvalidButtonPress()) { return; }
+            if (InvalidButtonPress() || NoValue()) { return; }
 
             double result = Calculator.Reciprocal(double.Parse(mainWindowData.CurrentValue));
             mainWindowData.CurrentValue = $"{result}";
@@ -154,7 +154,7 @@ namespace M6
 
         public void Square_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (InvalidButtonPress()) { return; }
+            if (InvalidButtonPress() || NoValue()) { return; }
 
             double result = Calculator.Square(double.Parse(mainWindowData.CurrentValue));
             mainWindowData.CurrentValue = $"{result}";
@@ -162,7 +162,7 @@ namespace M6
 
         public void SquareRoot_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (InvalidButtonPress()) { return; }
+            if (InvalidButtonPress() || NoValue()) { return; }
 
             double result = double.Parse(mainWindowData.CurrentValue);
             if (result < 0) return;
@@ -172,7 +172,7 @@ namespace M6
 
         public void SignChange_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (InvalidButtonPress()) {  return; }
+            if (InvalidButtonPress() || NoValue()) {  return; }
 
             double result = double.Parse(mainWindowData.CurrentValue);
             if (result == 0) return;
@@ -189,29 +189,12 @@ namespace M6
 
         public void Equals_ButtonPress(object sender, RoutedEventArgs e)
         {
-            if (CannotCompleteOperation()) { return; }
+            if (CannotCompleteOperation() || NoValue()) { return; }
 
             double result = CalculateResult();
 
             mainWindowData.PreviousValue = $"{mainWindowData.PreviousValue} {mainWindowData.CurrentValue} = ";
             mainWindowData.CurrentValue = $"{result}";
-        }
-
-        private void CompletePreviousOperation(string new_operation)
-        { 
-            if (CannotCompleteOperation()) { return; }
-
-            double result = CalculateResult();
-
-            char operation_symbol = new_operation == "add" ? '+' :
-                          new_operation == "subtract" ? '-' :
-                          new_operation == "multiply" ? '×' :
-                          new_operation == "divide" ? '÷' :
-                          throw new ArgumentException("Invalid previous operation.");
-
-            mainWindowData.PreviousValue = $"{result} {operation_symbol}";
-            mainWindowData.CurrentValue = $"";
-            mainWindowData.CurrentOperation = new_operation;
         }
 
         // KEYBOARD FUNCTIONALITY
@@ -227,6 +210,44 @@ namespace M6
         }
 
         // HELPER FUNCTIONS
+        private double CalculateResult()
+        {
+            string previousValue = mainWindowData.PreviousValue;
+            double a = double.Parse(mainWindowData.PreviousValue.TrimEnd(' ', '+', '-', '×', '÷'));
+            double b = double.Parse(mainWindowData.CurrentValue);
+            double result = 0;
+
+            switch (mainWindowData.CurrentOperation)
+            {
+                case "add":
+                    return result = Calculator.Add(a, b);
+                case "subtract":
+                    return result = Calculator.Subtract(a, b);
+                case "multiply":
+                    return result = Calculator.Multiply(a, b);
+                case "divide":
+                    return result = Calculator.Divide(a, b);
+            }
+
+            return result;
+        }
+
+        private void CompletePreviousOperation(string new_operation)
+        {
+            if (CannotCompleteOperation() || NoValue()) { return; }
+
+            double result = CalculateResult();
+
+            char operation_symbol = new_operation == "add" ? '+' :
+                          new_operation == "subtract" ? '-' :
+                          new_operation == "multiply" ? '×' :
+                          new_operation == "divide" ? '÷' :
+                          throw new ArgumentException("Invalid previous operation.");
+
+            mainWindowData.PreviousValue = $"{result} {operation_symbol}";
+            mainWindowData.CurrentValue = $"";
+            mainWindowData.CurrentOperation = new_operation;
+        }
         private bool ShiftKeyIsPressed()
         {
             if (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))
@@ -266,28 +287,6 @@ namespace M6
             }
         }
 
-        private double CalculateResult()
-        {
-            string previousValue = mainWindowData.PreviousValue;
-            double a = double.Parse(mainWindowData.PreviousValue.TrimEnd(' ', '+', '-', '×', '÷'));
-            double b = double.Parse(mainWindowData.CurrentValue);
-            double result = 0;
-
-            switch (mainWindowData.CurrentOperation)
-            {
-                case "add":
-                    return result = Calculator.Add(a, b);
-                case "subtract":
-                    return result = Calculator.Subtract(a, b);
-                case "multiply":
-                    return result = Calculator.Multiply(a, b);
-                case "divide":
-                    return result = Calculator.Divide(a, b);
-            }
-
-            return result;
-        }
-
         private bool DecimalPointAlreadyUsed()
         {
             if (mainWindowData.CurrentValue.Contains('.'))
@@ -307,12 +306,6 @@ namespace M6
 
             return false;
         }
-
-        private bool OperationInProgress()
-        {
-            return new char[] { '+', '-', '÷', '×' }.Any(c => mainWindowData.PreviousValue.EndsWith(c));
-        }
-
         private bool InvalidButtonPress()
         {
             if (string.IsNullOrEmpty(mainWindowData.CurrentValue))
@@ -321,6 +314,20 @@ namespace M6
             }
 
             return false;
+        }
+
+        private bool NoValue()
+        {
+            if (mainWindowData.CurrentValue == ".")
+            {
+                return true;
+            }
+
+            return false;
+        }
+        private bool OperationInProgress()
+        {
+            return new char[] { '+', '-', '÷', '×' }.Any(c => mainWindowData.PreviousValue.EndsWith(c));
         }
 
         private void RemoveLeadingZero()
