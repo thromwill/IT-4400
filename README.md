@@ -3,6 +3,6 @@
 Curated C# Projects displaying the progression of this C#/.NET course.
 
 <pre>
-Calculator: simulates Windows 11 standard basic calculator
+Calculator: replicates Windows 11 standard basic calculator
 </pre>
 
