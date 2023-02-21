@@ -3,9 +3,6 @@
 Curated C# Projects displaying the progression of this C#/.NET course.
 
 <pre>
-Challenge: Temp
-Challenge: Temp
-Challenge: Temp
-Final Project: Temp
+Calculator: simulates Windows 11 standard basic calculator
 </pre>
 
