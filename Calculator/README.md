@@ -25,15 +25,18 @@ COLOR THEME:
 The color theme of the calculator can be switched between Windows light (default) and dark theme.
 
 CONTINUOUS OPERATION:
-Continuous operation is supported, which means that there is no need to press "equals" between calculations. Additional operations will automatically complete previous operations before continuing.
+Continuous operation is supported, which means that there is no need to press "equals" between calculations. 
+Additional operations will automatically complete previous operations before continuing.
 
 KEYBOARD INPUT:
-In addition to clicking the calculator buttons, keyboard input is also supported for non-numpad keys: 0-9, ., +, -, *, /, %, =, Enter, Backspace, and Delete.
+In addition to clicking the calculator buttons, keyboard input is also supported for non-numpad
+keys: 0-9, ., +, -, *, /, %, =, Enter, Backspace, and Delete.
 
 VALIDATION:
 The calculator has been designed to validate every input scenario. Examples include:
 	- The square root button will have no effect on a negative value.
 	- If the current value is only a decimal point, operations will not be executed.
-	- If the current value is zero and a number key is pressed, the 0 will be replaced by the number rather than added to it. For example, pressing "5" will display "5" instead of "05".
+	- If the current value is zero and a number key is pressed, the 0 will be replaced by
+	  the number rather than added to it. For example, pressing "5" will display "5" instead of "05".
 	- Only relevant keyboard buttons will have an effect on the calculator input.
 </pre>
