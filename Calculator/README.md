@@ -34,9 +34,9 @@ keys: 0-9, ., +, -, *, /, %, =, Enter, Backspace, and Delete.
 
 VALIDATION:
 The calculator has been designed to validate every input scenario. Examples include:
-	- The square root button will have no effect on a negative value.
-	- If the current value is only a decimal point, operations will not be executed.
-	- If the current value is zero and a number key is pressed, the 0 will be replaced by
-	  the number rather than added to it. For example, pressing "5" will display "5" instead of "05".
-	- Only relevant keyboard buttons will have an effect on the calculator input.
+- The square root button will have no effect on a negative value.
+- If the current value is only a decimal point, operations will not be executed.
+- If the current value is zero and a number key is pressed, the 0 will be replaced by
+  the number rather than added to it. For example, pressing "5" will display "5" instead of "05".
+- Only relevant keyboard buttons will have an effect on the calculator input.
 </pre>
