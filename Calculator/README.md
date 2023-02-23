@@ -13,7 +13,7 @@ Square Root: takes the square root of the current value
 Reciprocal: takes the inverse of the current value
 Percent: divides the current value by 100
 Sign Change: changes the sign of the current value (positive/negative)
-</p>
+<\p>
 
 CALCULATOR OPERATIONS:
 Numpad: includes a numeric value 0-9
