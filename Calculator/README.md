@@ -6,7 +6,7 @@ MATHMATICAL OPERATIONS:
 Add: take the sum of the current and previous values
 Subtract: take the difference of the current and previous values
 Multiply: take the product of the current and previous values
-Divide: take the quotiant of the current and previous values
+Divide: take the quotient of the current and previous values
 Square: square the current value
 Square Root: take the square root of the current value
 Reciprocal: take the inverse of the current value
