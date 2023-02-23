@@ -4,7 +4,7 @@ It includes the following features:
 <pre>
 MATHMATICAL OPERATIONS:
 Add: take the sum of the current and previous values
-Subtract: take the different of the current and previous values
+Subtract: take the difference of the current and previous values
 Multiply: take the product of the current and previous values
 Divide: take the quotiant of the current and previous values
 Square: square the current value
