@@ -2,6 +2,7 @@ This C# WPF calculator is designed to replicate the standard Windows 11 basic ca
 
 It includes the following features:
 
+<p>
 MATHEMATICAL OPERATIONS:
 Add: takes the sum of the current and previous values
 Subtract: takes the difference of the current and previous values
@@ -12,6 +13,7 @@ Square Root: takes the square root of the current value
 Reciprocal: takes the inverse of the current value
 Percent: divides the current value by 100
 Sign Change: changes the sign of the current value (positive/negative)
+</p>
 
 CALCULATOR OPERATIONS:
 Numpad: includes a numeric value 0-9
