@@ -10,26 +10,26 @@ Large primary text box to edit .txt files.
 </pre>
 <pre>
 OPTIONS:
-  File - 
+  File
     New: create a new text file
     Open: open an existing text file
     Save: quitely save changes
     Save As: save changes, rename, and choose location
     Exit: exit the application
-  Edit - 
+  Edit
     Undo: undo action
     Redo: redo action
     Cut: cut selected text
     Copy: copy selected text
     Paste: paste text from clipboard
     Select All: select all current text, including none if desired
-  View - 
+  View
     Zoom In: increase zoom level by 10%
     Zoom Out: decrease zoom level by 10%
     Default: reset zoom level to 100%
     Fullscreen: toggle window size to full screen
     Text Wrapping: toggle text wrapping e.g. once edge is reached, text can go to next line or horizontal scroll bar can appear
-  Help - 
+  Help
     About: brief information about the application
 </pre>
 <pre>
