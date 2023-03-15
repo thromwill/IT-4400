@@ -1,5 +1,7 @@
 This C# WPF calculator is designed to replicate the standard Windows 11 basic calculator with nearly a 1-to-1 layout, sizing, and colors. While most functionality is identical, some preferential changes have been made.
 
+![alt text](https://github.com/thromwill/INFOTC-4400/blob/main/Calculator/Calculator.png)
+
 It includes the following features:
 
 <pre>
