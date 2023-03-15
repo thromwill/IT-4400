@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -420,6 +420,12 @@ namespace M8
         // SETTINGS
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Content == settingsPage)
+            {
+                settingsPage.SettingsBack_Click(sender, e);
+                return;
+            }
+
             // Display settings page
             var temp = this.Content;
             this.Content = settingsPage;
@@ -553,14 +559,15 @@ namespace M8
             }
         }
 
-        private bool SettingsPageIsOpen()
-        {
-            return settingsPage.Visibility == Visibility.Visible;
-        }
-
         private bool ShiftKeyIsPressed()
         {
             return (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift));
+        }
+
+        private bool SettingsPageIsOpen()
+        {
+            //return settingsPage.Visibility == Visibility.Visible;
+            return this.Content == settingsPage;
         }
     }
 
