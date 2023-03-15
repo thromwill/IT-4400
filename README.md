@@ -6,4 +6,4 @@ Curated C# Projects displaying the progression of this C#/.NET course.
 Calculator: replicates Windows 11 standard basic calculator
 </pre>
 
-![alt text](https://github.com/thromwill/INFOTC-4400/blob/main/image.png)
+![alt text](https://github.com/thromwill/INFOTC-4400/blob/main/Calculator.png)
