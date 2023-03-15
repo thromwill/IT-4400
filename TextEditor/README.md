@@ -6,7 +6,7 @@ It includes the following features:
 
 <pre>
 TEXTBOX:
-Large primary text box to edit simple documents or other .txt files.
+Large primary text box to edit .txt files.
 </pre>
 <pre>
 OPTIONS:
