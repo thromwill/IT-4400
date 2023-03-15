@@ -54,7 +54,3 @@ The text editor has been designed to validate any input scendario Examples inclu
 - The user is prompted to save their file if unsaved changes have been made and an unsaafe action, like closing
   the application, has been started.
 </pre>
-<Pre>
-KNOWN BUGS:
-  Pressing F3 multiple times in a row will leave the user stranded in the settings menu
-</pre>
