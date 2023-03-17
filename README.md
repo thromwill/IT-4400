@@ -3,6 +3,6 @@
 Curated Projects displaying the progression of this C#/.NET course.
 
 <pre>
-Text Editor: offers a simple version of Windows Notepad
 Calculator: replicates Windows 11 standard basic calculator
+Text Editor: offers a simple version of Windows Notepad
 </pre>
