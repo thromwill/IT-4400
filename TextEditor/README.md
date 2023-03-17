@@ -48,8 +48,7 @@ Use F3 to open the settings menu, F9 to toggle Word Wrap, and F11 to toggle full
 </pre>
 <pre>
 VALIDATION:
-The text editor has been designed to validate any input scendario
-Examples include:
+The text editor has been designed to validate any input scendario. Examples include:
 - Unavailable options are 'greyed out' and unclickable. For example, if there have been no changes to a 
   document Save becomes unavailable.
 - The user is prompted to save their file if unsaved changes have been made and an unsaafe action, like closing
